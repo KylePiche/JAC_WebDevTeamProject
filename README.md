@@ -1,7 +1,7 @@
 # JAC_WebDevTeamProject
 
 Create your own connection-config.php in the root of the project:
-
+```
 <?php
 
 class Database{
@@ -30,3 +30,4 @@ class Database{
 
 
 ?>
+```
