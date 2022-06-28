@@ -27,7 +27,7 @@
 *.code-workspace
 
 # Connection config for the database
-!connection-config.php
+/connection-config.php
 
 ### Windows ###
 # Windows thumbnail cache files
