@@ -26,4 +26,7 @@
 # Ignore code-workspaces
 *.code-workspace
 
+# Connection config for the database
+!connection-config.php
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
