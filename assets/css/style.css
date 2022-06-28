@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+/* #f0a42b*/
+/* #f19709*/
+
+.nav-buttons {
+   margin-left: 30%;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+   font-size: 2.5 rem;
+   font-weight: 500;
+}
+
+h2 {
+   font-size: 1.5rem;
+   font-weight: 600;
+}
+
+h3 {
+   font-size: 1 rem;
+   font-weight: 600;
+}
+
+h4 {
+   font-size: 1.2 rem;
+   font-weight: 600;
+}
+
+h5 {
+   font-size: 1 rem;
+   font-weight: 400;
+}
+
+h6 {
+   color: #d8d8d8;
+}
+
+.btn {
+   font-size: .8rem;
+   font-weight: 900;
+   outline: none;
+   border: 1px solid #f19709;
+   background-color: transparent;
+   color: #f19709;
+   padding: 13px 30px;
+   text-transform: uppercase;
+   cursor: pointer;
+   transition: 0.4s ease;
+}
+
+.btn:hover {
+   color: aliceblue;
+   background-color: #f19709;
+}
+
+.navbar {
+   font-size: 16px;
+   padding-top: .5rem;
+   padding-bottom: .5rem !important;
+   top: 0;
+   left: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+   padding: 0 20px;
+   color: #000;
+   transition: 0.4s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link:active
+.navbar i:hover {
+   color: #f19709;
+}
+
+.navbar i {
+   font-size: 1.2rem;
+   padding: 0 0.7px;
+   transition: .4s ease;
+   font-weight: 500;
+   cursor: pointer;
+   margin-left: 5px;
+}
+
+@media only screen and (max-width: 990px) {
+   .nav-buttons {
+      margin: 0 auto;
+      text-align: center;
+   }   
+}
+
+/* Home section*/
+.carousel-indicators button{
+   background-color: #f19709;
+}
+
+.carousel-item {
+   height: 100vh;
+   min-height: 350px;
+   background: no-repeat center center scroll;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   position: relative;
+ }
+
+.carousel-item img {
+   width: 100%;
+   height: 100%;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+ .carousel-caption {
+   position: absolute;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;  
+   color: #000; 
+ }
+
+ .carousel-caption span {
+   color: #f19709;
+}
+
+.caption1 {
+   align-items: flex-start; 
+   color: #000;
+}
+
+.caption2 {
+   align-items: center;
+   color: #fff; 
+}
+
+.caption3 {
+   align-items: flex-start;
+   margin-left: 40%;  
+   color: #000;
+}
+
+.carousel .carousel-indicators button {  background-color: Gray; }
+.carousel .carousel-indicators button.active { background-color: #f19709; }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: #f19709;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: #f19709;
+}
+
+/* Brand section*/
+#brand {
+   
+}
+#brand .banner{
+   height: 150px;
+   margin: 15px 0;   
+}
+
+#brand img {
+   height: 100%;   
+}
+
+#brand h5 {
+   margin: 10px 0;
+}
+
+.support {
+   text-decoration: none;
+}
+
+/* Laptop section*/
+#laptop {
+   margin: 30px 0;
+   padding: 30px;
+   text-align: center;
+}
+
+.popular-img {
+   
+   width: 300px;
+   height: 200px;
+   margin: 0 auto;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow: hidden;
+}
+
+.img-cap {
+   border: 1px solid #f19709;
+   width: 200px;
+   height: 50px;
+   background-color: #f19709;
+   position: absolute;
+   padding: 10px 5px;
+   top: 98%;
+   opacity: 1;
+   transition: transform .3s ease;
+}
+
+.popular-img:hover .img-cap {
+   transform: translateY(-48px);
+   opacity: 1;
+   cursor: pointer;
+}
+
+.popular-caption {
+   margin: 15px 0;  
+}
+
+.popular-caption h3{
+  font-size: 1.2rem;
+}
+
+
+
