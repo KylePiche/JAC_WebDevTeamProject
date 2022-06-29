@@ -1,3 +1,6 @@
+/* reset database */
+DROP DATABASE computerstore;
+
 /* DB creation */
 CREATE DATABASE computerstore;
 
@@ -20,7 +23,7 @@ USE computerstore;
 CREATE TABLE products (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255) NOT NULL,
-	desc varchar(500) DEFAULT NULL,
+	`desc` varchar(500) DEFAULT NULL,
 	type enum('laptop', 'desktop'),
 	price decimal(10,2) NOT NULL,
 	CPUid int NOT NULL,
@@ -34,7 +37,7 @@ CREATE TABLE products (
 USE computerstore;
 CREATE TABLE spec_GPU (
 	id int NOT NULL AUTO_INCREMENT,
-	desc varchar(255) NOT NULL,
+	`desc` varchar(255) NOT NULL,
 	memory int DEFAULT NULL,
 	PRIMARY KEY(id)
 );
@@ -42,7 +45,7 @@ CREATE TABLE spec_GPU (
 USE computerstore;
 CREATE TABLE spec_CPU (
 	id int NOT NULL AUTO_INCREMENT,
-	desc varchar(255) NOT NULL,
+	`desc` varchar(255) NOT NULL,
 	clockSpeed decimal(3,1) NOT NULL,
 	coreCount int NOT NULL,
 	PRIMARY KEY(id)
@@ -51,7 +54,7 @@ CREATE TABLE spec_CPU (
 USE computerstore;
 CREATE TABLE spec_memory (
 	id int NOT NULL AUTO_INCREMENT,
-	desc varchar(255) NOT NULL,
+	`desc` varchar(255) NOT NULL,
 	memory int NOT NULL,
 	PRIMARY KEY(id)
 );
@@ -59,7 +62,7 @@ CREATE TABLE spec_memory (
 USE computerstore;
 CREATE TABLE spec_storage (
 	id int NOT NULL AUTO_INCREMENT,
-	desc varchar(255) NOT NULL,
+	`desc` varchar(255) NOT NULL,
 	capacity int NOT NULL,
 	PRIMARY KEY(id)
 );
@@ -67,7 +70,7 @@ CREATE TABLE spec_storage (
 USE computerstore;
 CREATE TABLE spec_screen (
 	id int NOT NULL AUTO_INCREMENT,
-	desc varchar(255) NOT NULL,
+	`desc` varchar(255) NOT NULL,
 	size decimal(3,1) DEFAULT NULL,
 	PRIMARY KEY(id)
 );
@@ -86,7 +89,7 @@ CREATE TABLE order_details (
 	productID int NOT NULL,
 	orderID int NOT NULL,
 	quantity int NOT NULL DEFAULT 1,
-	PRIMARY KEY(id);
+	PRIMARY KEY(id)
 );
 
 USE computerstore;
@@ -95,7 +98,7 @@ CREATE TABLE favorite_lists (
 	userID int NOT NULL,
 	dateCreated datetime DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(id)
-)
+);
 
 USE computerstore;
 CREATE TABLE favorites (
