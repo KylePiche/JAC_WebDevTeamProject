@@ -1,5 +1,5 @@
 /* reset database */
-DROP DATABASE computerstore IF EXISTS;
+DROP DATABASE IF EXISTS computerstore;
 
 /* DB creation */
 CREATE DATABASE computerstore;
