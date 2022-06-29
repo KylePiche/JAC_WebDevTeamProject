@@ -17,9 +17,9 @@ INSERT INTO spec_CPU (desc, clockSpeed, coreCount) VALUES
  ("Intel 6756 Mobile", 3.5, 8);
  
 INSERT INTO spec_memory (desc, memory) VALUES
- ("64GB DDR5 RAM (5000Mhz)", 5000),
- ("32GB DDR4 RAM (2300Mhz)", 2300),
- ("12GB DDR4 RAM (3000Mhz)", 3000);
+ ("64GB DDR5 RAM (5000Mhz)", 64),
+ ("32GB DDR4 RAM (2300Mhz)", 32),
+ ("12GB DDR4 RAM (3000Mhz)", 12);
  
 INSERT INTO spec_storage (desc, capacity) VALUES
  ("2TB NVMe M.2", 2000),
