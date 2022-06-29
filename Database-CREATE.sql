@@ -31,6 +31,7 @@ CREATE TABLE products (
 	memoryID int NOT NULL,
 	storageID int NOT NULL,
 	screenID int NOT NULL,
+	imageUrl varchar(200) NULL,
 	PRIMARY KEY(id)
 );
 
