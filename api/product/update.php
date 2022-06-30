@@ -26,6 +26,7 @@
     $prod->desc = $data->desc;
     $prod->type = $data->type;
     $prod->price = $data->price;
+    $prod->imageUrl = $data->imageUrl;
     $prod->cpu_desc = $data->cpu_desc;
     $prod->cpu_speed = $data->cpu_speed;
     $prod->cpu_cores = $data->cpu_cores;

@@ -1,3 +1,8 @@
+<?php
+include_once 'connection-config.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +24,7 @@
 </head>
 
 <body>
-  <!--navbar-->
-  <?php
-  include 'header.php'
-  ?>
+  <?php require 'header.php';?>
   <div id="myCarousel" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
