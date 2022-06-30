@@ -134,7 +134,7 @@
         // UPDATE
         public function update(){
             $query = 'UPDATE ' . $this->table . ' 
-                    SET `name` = :name, `desc` = :desc, `type` = :type, price = :price, imageUrl = :imageUrl,
+                    SET `name`=:name, `desc`=:desc, `type`=:type, price=:price, imageUrl=:imageUrl,
                     CPUid=(SELECT id FROM spec_cpu WHERE `desc`=:cpu_desc), 
                     GPUid=(SELECT id FROM spec_gpu WHERE `desc`=:gpu_desc), 
                     memoryID=(SELECT id FROM spec_memory WHERE `desc`=:memory_desc), 
