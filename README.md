@@ -26,7 +26,7 @@ class Database{
     }
 }
 
-$mysqli = mysqli_connect("localhost", "root" , "","computerstore")or die(mysqli_error($conn));
+$mysqli = mysqli_connect("localhost", "root" , "","computerstore")or die(mysqli_error($mysqli));
 
 
 ?>
