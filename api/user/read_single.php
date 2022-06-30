@@ -22,15 +22,15 @@
 
     // Create array
     $user_arr = array(
-        'id' => $id,
-        'email' => $email,
-        'username' => $username,
-        'password' => $password,
-        'creditcard' => $creditcard,
-        'address' => $address,
-        'city' => $city,
-        'postalCode' => $postalCode,
-        'isBlocked' => $isBlocked
+        'id' => $user->id,
+        'email' => $user->email,
+        'userName' => $user->username,
+        'password' => $user->password,
+        'creditCard' => $user->creditcard,
+        'address' => $user->address,
+        'city' => $user->city,
+        'postalCode' => $user->postalCode,
+        'isBlocked' => $user->isBlocked
     );
 
     print_r(json_encode($user_arr));

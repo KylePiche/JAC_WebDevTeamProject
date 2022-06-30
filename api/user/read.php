@@ -26,9 +26,9 @@
             $user_item = array(
                 'id' => $id,
                 'email' => $email,
-                'username' => $username,
+                'userName' => $userName,
                 'password' => $password,
-                'creditcard' => $creditcard,
+                'creditCard' => $creditCard,
                 'address' => $address,
                 'city' => $city,
                 'postalCode' => $postalCode,

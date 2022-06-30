@@ -25,7 +25,7 @@ class User
     // GET MULTIPLE
     public function read()
     {
-        $query = 'SELECT * FROM ' . $this->table . '';
+        $query = 'SELECT id, email, userName, `password`, creditCard, `address`, city, postalCode, isBlocked FROM ' . $this->table . '';
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -34,7 +34,7 @@ class User
     // GET SINGLE
     public function read_single()
     {
-        $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ? LIMIT 0,1';
+        $query = 'SELECT id, email, userName, `password`, creditCard, `address`, city, postalCode, isBlocked FROM ' . $this->table . ' WHERE id = ? LIMIT 0,1';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
         $stmt->execute();
@@ -86,7 +86,7 @@ class User
         $this->email = htmlspecialchars(strip_tags($this->email));
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));
-        $this->creditcard = htmlspecialchars(strip_tags($this->creditCard));
+        $this->creditcard = htmlspecialchars(strip_tags($this->creditcard));
         $this->address = htmlspecialchars(strip_tags($this->address));
         $this->city = htmlspecialchars(strip_tags($this->city));
         $this->postalCode = htmlspecialchars(strip_tags($this->postalCode));
@@ -97,7 +97,7 @@ class User
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':password', $this->password);
-        $stmt->bindParam(':creditCard', $this->creditCard);
+        $stmt->bindParam(':creditCard', $this->creditcard);
         $stmt->bindParam(':address', $this->address);
         $stmt->bindParam(':city', $this->city);
         $stmt->bindParam(':postalCode', $this->postalCode);
