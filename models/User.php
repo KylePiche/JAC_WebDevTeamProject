@@ -34,7 +34,7 @@ class User
     // GET SINGLE
     public function read_single()
     {
-        $query = 'SELECT * FROM ' . $this->table . 'WHERE id = ? LIMIT 0,1';
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ? LIMIT 0,1';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
         $stmt->execute();
@@ -52,9 +52,9 @@ class User
     }
 
     // CREATE
-    public function createNewUser()
+    public function create()
     {
-        $query = 'INSERT INTO ' . $this->table . '(email, userName, password) VALUES (:email , :username, :password);';
+        $query = 'INSERT INTO ' . $this->table . ' (email, userName, password) VALUES (:email, :username, :password);';
         // Prepare statement
         $stmt = $this->conn->prepare($query);
         // Clean data
@@ -78,18 +78,30 @@ class User
     // UPDATE
     public function update()
     {
-        $query = 'UPDATE ' . $this->table . ' SET email=:email, username= :username, password= :password WHERE id = :id';
+        $query = 'UPDATE ' . $this->table . ' SET email=:email, username=:username, password=:password, creditCard=:creditCard,
+                                             address=:address, city=:city, postalCode=:postalCode, isBlocked=:isBlocked
+                                             WHERE id=:id';
         $stmt = $this->conn->prepare($query);
         // Clean data
         $this->email = htmlspecialchars(strip_tags($this->email));
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->creditcard = htmlspecialchars(strip_tags($this->creditCard));
+        $this->address = htmlspecialchars(strip_tags($this->address));
+        $this->city = htmlspecialchars(strip_tags($this->city));
+        $this->postalCode = htmlspecialchars(strip_tags($this->postalCode));
+        $this->isBlocked = htmlspecialchars(strip_tags($this->isBlocked));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         // Bind data
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':password', $this->password);
+        $stmt->bindParam(':creditCard', $this->creditCard);
+        $stmt->bindParam(':address', $this->address);
+        $stmt->bindParam(':city', $this->city);
+        $stmt->bindParam(':postalCode', $this->postalCode);
+        $stmt->bindParam(':isBlocked', $this->isBlocked);
         $stmt->bindParam(':id', $this->id);
 
         // Execute query
@@ -107,7 +119,7 @@ class User
     public function delete()
     {
         // Create query
-    $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+    $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
