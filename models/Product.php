@@ -11,6 +11,7 @@
         public $desc;
         public $type;
         public $price;
+        public $imageUrl;
         public $cpu_desc;
         public $cpu_speed;
         public $cpu_cores;
@@ -30,7 +31,7 @@
 
         // GET MULTIPLE
         public function read(){
-            $query = 'SELECT p.id as id, p.name as `name`, p.desc as `desc`, p.type as `type`, p.price as price, 
+            $query = 'SELECT p.id as id, p.name as `name`, p.desc as `desc`, p.type as `type`, p.price as price, p.imageUrl as imageUrl,
                             c.desc as cpu_desc, c.clockSpeed as cpu_speed, c.coreCount as cpu_cores, 
                             g.desc as gpu_desc, g.memory as gpu_memory,
                             m.desc as memory_desc, m.memory as ram,
@@ -50,7 +51,7 @@
 
         // GET SINGLE
         public function read_single(){
-            $query = 'SELECT p.id as id, p.name as `name`, p.desc as `desc`, p.type as `type`, p.price as price, 
+            $query = 'SELECT p.id as id, p.name as `name`, p.desc as `desc`, p.type as `type`, p.price as price, p.imageUrl as imageUrl, 
                             c.desc as cpu_desc, c.clockSpeed as cpu_speed, c.coreCount as cpu_cores, 
                             g.desc as gpu_desc, g.memory as gpu_memory,
                             m.desc as memory_desc, m.memory as ram,
@@ -73,6 +74,7 @@
             $this->desc = $row['desc'];
             $this->type = $row['type'];
             $this->price = $row['price'];
+            $this->imageUrl = $row['imageUrl'];
             $this->cpu_desc = $row['cpu_desc'];
             $this->cpu_speed = $row['cpu_speed'];
             $this->cpu_cores = $row['cpu_cores'];
@@ -90,7 +92,7 @@
         // CREATE
         public function create(){
             $query = 'INSERT INTO ' . $this->table . ' 
-                    SET `name` = :name, `desc` = :desc, `type` = :type, price = :price, 
+                    SET `name` = :name, `desc` = :desc, `type` = :type, price = :price, imageUrl = :imageUrl, 
                     CPUid=(SELECT id FROM spec_cpu WHERE `desc`=:cpu_desc), 
                     GPUid=(SELECT id FROM spec_gpu WHERE `desc`=:gpu_desc), 
                     memoryID=(SELECT id FROM spec_memory WHERE `desc`=:memory_desc), 
@@ -103,6 +105,7 @@
             $this->desc = htmlspecialchars(strip_tags($this->desc));
             $this->type = htmlspecialchars(strip_tags($this->type));
             $this->price = htmlspecialchars(strip_tags($this->price));
+            $this->imageUrl = htmlspecialchars(strip_tags($this->imageUrl));
             $this->cpu_desc = htmlspecialchars(strip_tags($this->cpu_desc));
             $this->gpu_desc = htmlspecialchars(strip_tags($this->gpu_desc));
             $this->memory_desc = htmlspecialchars(strip_tags($this->memory_desc));
@@ -113,6 +116,7 @@
             $stmt->bindParam(':desc', $this->desc);
             $stmt->bindParam(':type', $this->type);
             $stmt->bindParam(':price', $this->price);
+            $stmt->bindParam(':imageUrl', $this->imageUrl);
             $stmt->bindParam(':cpu_desc', $this->cpu_desc);
             $stmt->bindParam(':gpu_desc', $this->gpu_desc);
             $stmt->bindParam(':memory_desc', $this->memory_desc);
@@ -130,7 +134,7 @@
         // UPDATE
         public function update(){
             $query = 'UPDATE ' . $this->table . ' 
-                    SET `name` = :name, `desc` = :desc, `type` = :type, price = :price, 
+                    SET `name` = :name, `desc` = :desc, `type` = :type, price = :price, imageUrl = :imageUrl,
                     CPUid=(SELECT id FROM spec_cpu WHERE `desc`=:cpu_desc), 
                     GPUid=(SELECT id FROM spec_gpu WHERE `desc`=:gpu_desc), 
                     memoryID=(SELECT id FROM spec_memory WHERE `desc`=:memory_desc), 
@@ -144,6 +148,7 @@
             $this->desc = htmlspecialchars(strip_tags($this->desc));
             $this->type = htmlspecialchars(strip_tags($this->type));
             $this->price = htmlspecialchars(strip_tags($this->price));
+            $this->imageUrl = htmlspecialchars(strip_tags($this->imageUrl));
             $this->cpu_desc = htmlspecialchars(strip_tags($this->cpu_desc));
             $this->gpu_desc = htmlspecialchars(strip_tags($this->gpu_desc));
             $this->memory_desc = htmlspecialchars(strip_tags($this->memory_desc));
@@ -155,6 +160,7 @@
             $stmt->bindParam(':desc', $this->desc);
             $stmt->bindParam(':type', $this->type);
             $stmt->bindParam(':price', $this->price);
+            $stmt->bindParam(':imageUrl', $this->imageUrl);
             $stmt->bindParam(':cpu_desc', $this->cpu_desc);
             $stmt->bindParam(':gpu_desc', $this->gpu_desc);
             $stmt->bindParam(':memory_desc', $this->memory_desc);
