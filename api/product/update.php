@@ -20,6 +20,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // Set properties
+    if(!empty($data)){
     $prod->id = $data->id;
     $prod->name = $data->name;
     $prod->desc = $data->desc;
@@ -37,7 +38,7 @@
     $prod->storage_capacity = $data->storage_capacity;
     $prod->screen_desc = $data->screen_desc;
     $prod->screen_size = $data->screen_size;
-
+    }
     // Update Product
     if($prod->update()) {
         echo json_encode(array('message' => 'Product Updated'));

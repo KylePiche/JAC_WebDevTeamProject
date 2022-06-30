@@ -140,7 +140,7 @@
                     memoryID=(SELECT id FROM spec_memory WHERE `desc`=:memory_desc), 
                     storageID=(SELECT id FROM spec_storage WHERE `desc`=:storage_desc), 
                     screenID=(SELECT id FROM spec_screen WHERE `desc`=:screen_desc)
-                    WHERE id = :id';
+                    WHERE id=:id';
             
             $stmt = $this->conn->prepare($query);
 
