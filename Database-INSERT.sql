@@ -1,9 +1,9 @@
 /*INSERT INTO table1 (field1, field2) VALUES (value1, value2);*/
 use computerstore;
-INSERT INTO products (name, desc, type, price, CPUid, GPUid, memoryID, storageID, screenID) VALUES
-("Ultimus Gaming PC", "Dominate the playing field with this top of the line gaming PC.", "desktop", "2000.99", 1, 1, 1, 1, 1),
-("Ultimus Gaming Laptop", "Dominate the playing field on the go with this top of the line gaming laptop.", "laptop", "2200.99", 2, 2, 2, 2, 2),
-("Ultimus Work Laptop", "Dominate the office space with this top of the line workstation laptop.", "laptop", "1800.99", 3, 3, 3, 3, 3);
+INSERT INTO products (name, desc, type, price, imageUrl, CPUid, GPUid, memoryID, storageID, screenID) VALUES
+("Ultimus Gaming PC", "Dominate the playing field with this top of the line gaming PC.", "desktop", "2000.99", "placeholderURL", 1, 1, 1, 1, 1),
+("Ultimus Gaming Laptop", "Dominate the playing field on the go with this top of the line gaming laptop.", "laptop", "2200.99", "placeholderURL", 2, 2, 2, 2, 2),
+("Ultimus Work Laptop", "Dominate the office space with this top of the line workstation laptop.", "laptop", "1800.99", "placeholderURL", 3, 3, 3, 3, 3);
 
 
 INSERT INTO spec_GPU (desc, memory) VALUES
