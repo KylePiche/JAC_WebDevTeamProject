@@ -29,6 +29,7 @@
                 'desc' => $desc,
                 'type' => $type,
                 'price' => $price,
+                'imageUrl' => $imageUrl,
                 'cpu_desc' => $cpu_desc,
                 'cpu_speed' => $cpu_speed,
                 'cpu_cores' => $cpu_cores,
