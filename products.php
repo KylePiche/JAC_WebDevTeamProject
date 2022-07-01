@@ -3,6 +3,7 @@ include_once 'connection-config.php';
 session_start();
 $sql = "SELECT * FROM products";
 $sqlResult = mysqli_query($mysqli, $sql);
+$count = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,33 +24,22 @@ $sqlResult = mysqli_query($mysqli, $sql);
 
 <body>
     <?php require 'header.php'; ?>
-    <div class="col-sm-4">
-        <div class="product-image-wrapper">
-            <div class="single-products">
-                <div class="productinfo text-center">
-                    <?php while ($row = mysqli_fetch_array($sqlResult)) { ?>
-                        <img src="<?php echo $row['imageUrl']; ?>" alt="Product Image of <?php echo $row['name']; ?>" />
-                        <h2><?php echo $row['name']; ?></h2>
-                        <p>Book 10</p>
-                    <?php } ?>
-                </div>
-                <div class="product-overlay">
-                    <div class="overlay-content">
-                        <h2>Price</h2>
-                        <p>Book 10</p>
-                        <a href="#" class="btn btn-default view-item"><i class="glyphicon glyphicon-eye-open"></i>view Book</a>
+    <div class="container mt-5">
+        <div class="card-group">
+            <?php while ($row = mysqli_fetch_array($sqlResult)) { ?>
+                <div class="card m-2" style="width: 18rem;">
+                    <img class="card-img-top" src="<?php echo $row['imageUrl'] ?>" alt="Promo image of <?php echo $row['name'] ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $row['name'] ?></h5>
+                        <p class="card-text"><?php echo $row['desc'] ?></p>
+                        <a href="#" class="btn btn-primary">Buy</a>
                     </div>
                 </div>
-
-            </div>
-            <div class="choose">
-                <ul class="nav nav-pills nav-justified">
-                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a></li>
-                </ul>
-            </div>
+            <?php } ?>
         </div>
     </div>
+
+    <!-- </div> -->
 </body>
 
 </html>
