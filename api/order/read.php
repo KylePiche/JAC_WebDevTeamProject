@@ -5,7 +5,7 @@
 
     // Includes
     include_once '../../connection-config.php';
-    include_once '../../models/Post.php';
+    include_once '../../models/Order.php';
 
 
     //connect
