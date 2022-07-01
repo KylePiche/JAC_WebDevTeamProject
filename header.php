@@ -13,7 +13,7 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#laptop">Shop</a>
+                    <a class="nav-link" href="products.php">Shop</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>

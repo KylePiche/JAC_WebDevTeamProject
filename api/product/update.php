@@ -21,7 +21,6 @@
 
     // Set properties
     $prod->id = $data->id;
-    $prod->id = $data->id;
     $prod->name = $data->name;
     $prod->desc = $data->desc;
     $prod->type = $data->type;
