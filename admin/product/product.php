@@ -65,13 +65,21 @@ $result = mysqli_query($mysqli, "SELECT * FROM products order by id ");
         $storageid = $_POST["storageid"];
         $screenid = $_POST["screenid"];
 
-        $imageurl = $_POST["imageurl"];
+        $target = "../../assets/img/";
+        $file_path = $target.basename($_FILES['file']['name']);
+        $file_name = $_FILES['file']['name'];
+        $file_tmp =  $_FILES['file']['tmp_name'];
+        $file_store = "../../assets/img/".$file_name;
+
+        move_uploaded_file($file_tmp, $file_store);
+
+        //$imageurl = $_POST["imageurl"];
 
         if (($name != "") && ($desc != "") && ($price != "")) {
 
             include_once("../../connection-config.php"); //get connection to db
 
-            $result = mysqli_query($mysqli, "INSERT INTO products (`name`, `desc`, `type`, price, imageUrl, CPUid, GPUid, memoryID, storageID, screenID) VALUES ('$name','$desc', '$type', $price, '$imageurl', $cpuid, $gpuid, $memoryid, $storageid ,$screenid )");
+            $result = mysqli_query($mysqli, "INSERT INTO products (`name`, `desc`, `type`, price, imageUrl, CPUid, GPUid, memoryID, storageID, screenID) VALUES ('$name','$desc', '$type', $price, '$file_path', $cpuid, $gpuid, $memoryid, $storageid ,$screenid )");
             // refresh the page  
             echo "<meta http-equiv='refresh' content='0'>";
         }
@@ -155,7 +163,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM products order by id ");
                     <div class="container">
                         <h1>CRUD - NEW PRODUCT</h1>
                         <div class="frminput">
-                            <form method="POST" action="<?php echo ($_SERVER["PHP_SELF"]); ?>">
+                            <form method="POST" action="<?php echo ($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
 
                                 <label for="name">Name: </label>
                                 <span class="error"><?php echo $nameErr; ?></span><br>
@@ -236,8 +244,9 @@ $result = mysqli_query($mysqli, "SELECT * FROM products order by id ");
                                 ?> <br> <br>
 
                                 <label for="imageurl">Image URL: </label> <br>
-                                <input type="text" id="imageurl" name="imageurl" class="finput" /> <br> <br>
-                                <br>
+                                <!-- <input type="text" id="imageurl" name="imageurl" class="finput" /> <br> <br> -->
+                                <input type="file" id="file" name="file" class="finput" />
+                                <br> <br>
                                 <input type="submit" class="btn" value="Submit">
                                 <input type="reset" class="btn" value="Cancel">
 

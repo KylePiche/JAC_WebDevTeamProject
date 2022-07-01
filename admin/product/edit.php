@@ -36,7 +36,22 @@
         $memoryid = $_POST["memoryid"];
         $storageid = $_POST["storageid"];
         $screenid = $_POST["screenid"];
-        $imageurl = $_POST["imageurl"];
+       
+        if ($_FILES['file']['name'] == "") {
+            // No file was selected for upload 
+            $imageurl = $_POST["imageurl"];
+        } else {
+            $target = "../../assets/img/";
+            $file_path = $target.basename($_FILES['file']['name']);
+            $file_name = $_FILES['file']['name'];
+            $file_tmp =  $_FILES['file']['tmp_name'];
+            $file_store = "../../assets/img/".$file_name;
+
+            move_uploaded_file($file_tmp, $file_store);
+
+            $imageurl = $file_path;
+        }
+
 
         $result = mysqli_query($mysqli, "UPDATE products SET `name`='$name',`desc`='$desc', `type`= '$type', price=$price, CPUid=$cpuid, GPUid=$gpuid, memoryID=$memoryid, storageID=$storageid, screenID=$screenid, `imageUrl`= '$imageurl' WHERE id = $id;");
         //echo $id;           
@@ -145,7 +160,7 @@
                     <div class="container">
                         <h1>CRUD - EDIT PRODUCT</h1>
                         <div class="frminput">
-                            <form name="update_user" method="POST" action="edit.php">
+                            <form name="update_user" method="POST" action="edit.php" enctype="multipart/form-data">
 
                                 <label for="name">Name: </label><br>
                                 <input type="text" id="name" name="name" class="finput" value="<?php echo $name; ?>"/> <br>
@@ -225,6 +240,8 @@
                                 <label for="imageurl">Image URL: </label> <br>
                                 <input type="text" id="imageurl" name="imageurl" class="finput"value="<?php echo $imageurl; ?>"/> <br> <br>
 
+                                <input type="file" id="file" name="file" class="finput" /> <br> <br>
+
                                 <br>
                                 <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
                                 <input type="Submit" name="update" value="Update" class="btn">
@@ -262,7 +279,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
-
 
 </body>
 
