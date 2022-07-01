@@ -214,7 +214,7 @@ session_start();
 
   </section>
 
-
+  <?php require 'footer.php';?>
 
 
   <!--cdn bootstrap 5.1.x-->

@@ -243,5 +243,66 @@ h6 {
   font-size: 1.2rem;
 }
 
+/*Footer section*/
+
+.site-footer {
+   padding: 4rem 0;
+}
+
+.site-footer .about{
+   color: #f19709;
+}
+   
+.site-footer ul li {
+   margin-bottom: 10px; 
+}
+     
+.site-footer ul li a {
+   color: #5c626e;
+   text-decoration: none; 
+}
+       
+.site-footer ul li a:hover {
+   color: #f19709;
+}
+
+.site-footer .footer-heading {
+   font-size: 1.2rem;
+   color: #000;   
+}
+.copyright {
+   font-size: small;
+}
+
+/*Footer section*/
+
+.site-footer {
+   padding: 4rem 0;
+}
+
+.site-footer .about{
+   color: #f19709;
+}
+   
+.site-footer ul li {
+   margin-bottom: 10px; 
+}
+     
+.site-footer ul li a {
+   color: #5c626e;
+   text-decoration: none; 
+}
+       
+.site-footer ul li a:hover {
+   color: #f19709;
+}
+
+.site-footer .footer-heading {
+   font-size: 1.2rem;
+   color: #000;   
+}
+.copyright {
+   font-size: small;
+}
 
 
