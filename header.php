@@ -34,7 +34,7 @@
                     </li>
                     <li class="nav-item">
                         <i class="bi bi-cart"></i>
-                        <i class="bi bi-person"></i>
+                        <a href="user_dashboard.php"><i class="bi bi-person"></i></a>
                     </li>
                 <?php } ?>
 
