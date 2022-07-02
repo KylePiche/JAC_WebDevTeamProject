@@ -31,11 +31,11 @@ session_start();
                 <form method="post" action="user_dashboard_updateInfo.php">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $_SESSION['email'] ?>" readonly>
+                        <input type="email" class="form-control" name="email" required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $_SESSION['email'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" name="username" value="<?php echo $_SESSION['username'] ?>">
+                        <input type="text" class="form-control" name="username" required="true" value="<?php echo $_SESSION['username'] ?>">
                     </div>
                     <div class="form-group">
                         <label>Credit Card</label>
@@ -61,19 +61,22 @@ session_start();
                     </div>
                     <br>
                 </form>
-                <form method="post" action="">   
+                <form method="post" action="user_dashboard_changePass.php">   
                     <h5>Reset Password</h5>
                     <div class="form-group">
                         <label>Old Password</label>
-                        <input type="password" class="form-control" name="oldPass" placeholder="Password(min. 8 characters)" required="true" pattern=".{8,}">
+                        <input type="password" class="form-control" name="oldPass" placeholder="Password(min. 8 characters)" pattern=".{8,}">
                     </div>
                     <div class="form-group">
                     <label>New Password</label>
-                        <input type="password" class="form-control" name="newPass" placeholder="Password(min. 8 characters)" required="true" pattern=".{8,}">
+                        <input type="password" class="form-control" name="newPass" placeholder="Password(min. 8 characters)"  pattern=".{8,}">
                     </div>
                     <div class="form-group">
                     <label>Confirm New Password</label>
-                        <input type="password" class="form-control" name="confirmPass" placeholder="Password(min. 8 characters)" required="true" pattern=".{8,}">
+                        <input type="password" class="form-control" name="confirmPass" placeholder="Password(min. 8 characters)" pattern=".{8,}">
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" name="submit-changePass" value="Change Password">

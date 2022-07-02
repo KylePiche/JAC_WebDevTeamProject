@@ -6,6 +6,20 @@
 
         if(isset($_POST['submit-updateUser'])){
 
+            $id = $_POST['id'];
+
+            if(empty($_POST['email'])){
+                echo "Enter email";
+            }else{
+                $reg_email = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[_a-z0-9-]+)*(\.[a-z]{2,3})$/";
+                $emailCheck = mysqli_real_escape_string($mysqli, $_POST['email']);
+                if(!preg_match($reg_email , $emailCheck)){
+                    echo "Incorrect email format";
+                }else{
+                    $email = mysqli_real_escape_string($mysqli, $_POST['email']);
+                }    
+            }
+
             if(empty($_POST['username'])){
                 echo "Enter username";
             }else{
@@ -36,13 +50,17 @@
                 $postalCode = mysqli_real_escape_string($mysqli, $_POST['postalCode']);
             }
 
-                $id = $_POST['id'];
-                $user_update_query = "UPDATE users SET userName='$username', creditCard='$creditcard', 
+            $dupcheck = "SELECT id FROM users WHERE email = '$email'";
+            $result = mysqli_query($mysqli, $dupcheck);
+            if (mysqli_num_rows($result) > 0 && $_SESSION['email'] != $_POST['email']) { // checks for duplicates only if email field was updated
+                echo "this email is already registered.";
+            } else {
+                $user_update_query = "UPDATE users SET email='$email', userName='$username', creditCard='$creditcard', 
                                 `address`='$address', city='$city', postalCode='$postalCode' WHERE id=$id";
                 if(mysqli_query($mysqli, $user_update_query)){
                     $_SESSION['id'] = $id;
                     $_SESSION['username'] = $username;
-                    //$_SESSION['email'] = $email;
+                    $_SESSION['email'] = $email;
                     $_SESSION['creditcard'] = $creditcard;
                     $_SESSION['address'] = $address;
                     $_SESSION['city'] = $city;
@@ -51,21 +69,8 @@
                 }else{
                     echo "something went wrong<br><a href=\"user_dashboard.php\">Return to Dashboard</a>";
                 }
-                //$id_query = "SELECT id, userName, email, creditCard, `address`, city, postalCode FROM users WHERE id='$id'";
-                //$result = mysqli_query($mysqli ,$id_query);
-                //$myarray = mysqli_fetch_array($result);
-                // $_SESSION['id'] = $myarray['id'];
-                // $_SESSION['username'] = $myarray['userName'];
-                // $_SESSION['email'] = $myarray['email'];
-                // $_SESSION['creditcard'] = $myarray['creditCard'];
-                // $_SESSION['address'] = $myarray['address'];
-                // $_SESSION['city'] = $myarray['city'];
-                // $_SESSION['postalCode'] = $myarray['postalCode'];
-
-                
-                //header('Location:user_dashboard.php');
-        }
-            
+            }
+        }       
     }
        
 ?>
