@@ -13,13 +13,10 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#shop.php">Shop</a>
+                    <a class="nav-link" href="shop.php">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="./admin/adminindex.php">Admin</a>
                 </li>
                 <?php if (!isset($_SESSION['email'])) { ?>
                     <li class="nav-item">

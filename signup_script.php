@@ -28,5 +28,5 @@ if (mysqli_num_rows($result) > 0) {
     $myarray = mysqli_fetch_array($result);
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;
-    //header('Location: index.html');
+    header('Location: index.php');
 }

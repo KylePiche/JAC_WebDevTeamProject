@@ -1,8 +1,3 @@
-<?php
-include_once 'connection-config.php';
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +5,7 @@ session_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syntax Shop</title>
+  <title>Syntax Shop - Home</title>
 
   <!--cdn bootstrap 5.1.x-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,7 +19,9 @@ session_start();
 </head>
 
 <body>
+  
   <?php require 'header.php';?>
+  
   <div id="myCarousel" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -39,7 +36,7 @@ session_start();
           <h5>NEW ARRIVALS</h5>
           <h1><span>Best Prices</span> This Season</h1>
           <p>Syntax Shop offers the best products for the most affordable prices</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -48,7 +45,7 @@ session_start();
           <h5>Questions & Answers</h5>
           <h1><span>Support</span> 24 Hr</h1>
           <p>Syntax Shop offers the best customer supports</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -57,7 +54,7 @@ session_start();
           <h5>NEW ARRIVALS</h5>
           <h1>New Computers<span> Everyday</span></h1>
           <p>Syntax Shop offers the best products for the most affordable prices</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
     </div>
@@ -111,14 +108,14 @@ session_start();
     </div>
   </section>
 
-  <!--Laptop-->
-  <section id="laptop">
+  <!--Popular-->
+  <section id="popular">
     <div class="container">
       <!-- Section tittle -->
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-10">
           <div class="section-tittle mb-70 text-center">
-            <h2>Popular Laptops</h2>
+            <h2>Popular Products</h2>
             <hr>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus eum quia optio, molestiae nihil aut assumenda excepturi aperiam iusto necessitatibus quis obcaecati? </p>
           </div>
@@ -128,83 +125,83 @@ session_start();
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
           <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
-              <img src="assets/img/computer1.jpg" alt="">
+              <img src="assets/img/laptop1.jpg" alt="laptop1">
               <div class="img-cap">
-                <span>Add to cart</span>
+                <a href="product_details.html"><span>Add to cart</span></a>
               </div>
             </div>
             <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 1</a></h3>
-              <span>$ 1,743</span>
+              <h3>Laptop 1</h3>
+              <span>$ 1,700</span>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
           <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
-              <img src="assets/img/computer2.jpg" alt="">
+              <img src="assets/img/laptop2.jpg" alt="laptop2">
               <div class="img-cap">
-                <span>Add to cart</span>
+                <a href="product_details.html"><span>Add to cart</span></a>
               </div>
             </div>
             <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 2</a></h3>
-              <span>$ 1,743</span>
+              <h3>Laptop 2</h3>
+              <span>$ 1,500</span>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
           <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
-              <img src="assets/img/computer3.jpg" alt="">
+              <img src="assets/img/laptop3.jpg" alt="laptop3">
               <div class="img-cap">
-                <span>Add to cart</span>
+                <a href="product_details.html"><span>Add to cart</span></a>
               </div>
             </div>
             <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 3</a></h3>
-              <span>$ 1,743</span>
+              <h3>Laptop 3</h3>
+              <span>$ 1,600</span>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
           <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
-              <img src="assets/img/computer1.jpg" alt="">
+              <img src="assets/img/desktop1.jpg" alt="desktop1">
               <div class="img-cap">
-                <span>Add to cart</span>
+                <a href="product_details.html"><span>Add to cart</span></a>
               </div>
             </div>
             <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 4</a></h3>
-              <span>$ 1,743</span>
+              <h3>Desktop 1</h3>
+              <span>$ 1,400</span>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
           <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
-              <img src="assets/img/computer2.jpg" alt="">
+              <img src="assets/img/desktop2.jpg" alt="desktop2">
               <div class="img-cap">
-                <span>Add to cart</span>
+                <a href="product_details.html"><span>Add to cart</span></a>
               </div>
             </div>
             <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 5</a></h3>
-              <span>$ 1,743</span>
+              <h3>Desktop 2</h3>
+              <span>$ 1,099</span>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
           <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
-              <img src="assets/img/computer3.jpg" alt="">
+              <img src="assets/img/desktop3.jpg" alt="desktop3">
               <div class="img-cap">
-                <span>Add to cart</span>
+                <a href="product_details.html"><span>Add to cart</span></a>
               </div>
             </div>
             <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 6</a></h3>
+              <h3>Desktop 3</h3>
               <span>$ 1,743</span>
             </div>
           </div>
