@@ -3,7 +3,9 @@ session_start();
 include_once 'connection-config.php';
 
 $userID = $_SESSION['id'];
-$result = mysqli_query($mysqli, "SELECT * FROM favorite_lists WHERE userID=$userID ORDER BY id");
+$listID = $_GET['id'];
+$result = mysqli_query($mysqli, "SELECT f.id as id, f.listID as listID, f.dateAdded as dateAdded, p.id as productID, p.`name` as productName FROM favorites f 
+                                LEFT JOIN products p ON f.productID=p.id WHERE listID=$listID ORDER BY f.dateAdded desc");
 
 $numofrow = mysqli_num_rows($result);
 ?>
@@ -40,22 +42,22 @@ $numofrow = mysqli_num_rows($result);
             </h4>
             <table class="table">
                 <thead>
-                    <th scope="col">List Number</th>
-                    <th scope="col">Date Created</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Date Added</th>
                     <th scope="col"></th>
                 </thead>
                 <?php
                   if($numofrow > 0){
                     while($user_data = mysqli_fetch_array($result)){
                       echo "<tr>";
-                      echo "<td>".$user_data['id']."</td>";
-                      echo "<td>".$user_data['dateCreated']."</td>";
-                      echo "<td><a href='wishlist_details.php?id=$user_data[id]'>View</a>";
+                      echo "<td>".$user_data['productName']."</td>";
+                      echo "<td>".$user_data['dateAdded']."</td>";
+                      echo "<td><a href='detail.php?id=$user_data[productID]'>View</a>";
                       echo "</tr>"; 
                     }
                   }else{
                     echo "<tr>";
-                    echo "<td>No Wishlists</td>";
+                    echo "<td>No Items</td>";
                   }
                 ?>
             </table>
