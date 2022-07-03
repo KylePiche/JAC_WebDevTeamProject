@@ -4,15 +4,30 @@ session_start();
 // if (!isset($_GET['id'])) {
 //     header('Location: products.php');
 // }
-$sql = "SELECT * FROM products WHERE id = {$_GET['id']}";
-// var_dump($sql);
+$sql = "SELECT 
+p.id AS product_id, p.name AS product_name, p.desc AS product_desc, p.price AS product_price, p.imageUrl AS product_image, p.type AS product_type,
+c.id AS cpu_id, c.desc as cpu_name, c.clockSpeed AS cpu_clock_speed, c.coreCount AS cpu_core_count,
+g.id AS gpu_id, g.desc as gpu_name, g.memory AS gpu_memory,
+m.id AS memory_id, m.desc as memory_name, m.memory AS memory_memory,
+sc.id AS screen_id, sc.desc as screen_name, sc.size AS screen_size,
+st.id AS storage_id, st.desc as storage_name, st.capacity AS storage_capacity
+FROM products p
+LEFT JOIN spec_cpu c on p.CPUid = c.id
+LEFT JOIN spec_gpu g on p.GPUid = g.id
+LEFT JOIN spec_memory m on p.memoryID = m.id
+LEFT JOIN spec_screen sc on p.screenID = sc.id
+LEFT JOIN spec_storage st on p.storageID = st.id
+
+
+WHERE p.id = {$_GET['id']}";
+var_dump($sql);
 
 $sqlResult = mysqli_query($mysqli, $sql);
-// var_dump($sqlResult);
+var_dump($sqlResult);
 $row = $sqlResult->fetch_assoc();
 var_dump($row);
 if ($row == NULL) {
-    header('Location: products.php');
+    // header('Location: products.php');
 }
 $count = 1;
 ?>
@@ -38,16 +53,24 @@ $count = 1;
     <div class="container">
 
         <div class="title">
-            <h1><?php echo $row['name'] ?></h1>
+            <h1><?php echo $row['product_name'] ?></h1>
         </div>
         <div class="row">
-            <div class="col"><img src="<?php echo $row['imageUrl'] ?>" alt="Image of <?php echo $row['name'] ?>"></div>
+            <div class="col"><img src="<?php echo $row['product_image'] ?>" alt="Image of <?php echo $row['product_name'] ?>"></div>
             <div class="col">
-                <p><?php echo $row['desc'] ?></p>
+                <p><?php echo $row['product_desc'] ?></p>
             </div>
 
         </div>
-
+        <div class="row mt-5">
+            <h3>Specs:</h3><br>
+            <h4>CPU:</h4>
+            <ul>
+                <li>Name: <?= $row['cpu_name']?></li>
+                <li>Clock Speed: <?= $row['cpu_clock_speed']?> GHz</li>
+                <li>Core count: <?= $row['cpu_core_count']?> <?php if($row['cpu_core_count']<2){echo "Core";}else{echo "Cores";}?></li>
+            </ul>
+        </div>
     </div>
 
 </body>
