@@ -46,14 +46,13 @@ $numofrow = mysqli_num_rows($dbresult);
 </head>
 
 <body>
-    <?php require 'header.php';?>
+  <?php require 'header.php';?>
 
-
+  <div class="container">
     <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-                <!--<span class="badge bg-primary rounded-pill">3</span>-->
             </h4>
             <table class="table">
                 <thead>
@@ -93,12 +92,15 @@ $numofrow = mysqli_num_rows($dbresult);
             </table>
             <?php
             if($numofrow == 0) {
-              echo "cart is empty</br></br>";
+              echo "cart is empty";
             } else {
             echo '<button class="w-100 btn btn-primary btn-lg"><a href="checkout.php">Proceed to Checkout</a></button>';
           }
             ?>
+            </br></br>
         </div>
     </div>
-    <?php require 'footer.php';?>
+  </div>
+  <?php require 'footer.php';?>
+    
 </body>

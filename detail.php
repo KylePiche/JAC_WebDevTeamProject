@@ -74,7 +74,7 @@
             <p>Storage: <?php echo $storage['desc'] ?></p>
             <p>Screen: <?php echo $screen['desc'] ?></p>
             <p>"Windows 11</p>
-            <button class="custombtn">Add to Card</button>
+            <button class="custombtn">Add to Cart</button>
             <button class="custombtn">Add to Wishlist</button>
           </div>
         </div>

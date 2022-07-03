@@ -7,7 +7,8 @@ FROM (SELECT od.id, od.productID, o.status, od.quantity
     FROM orders as o
     INNER JOIN order_details as od
       ON o.id = od.orderID
-    WHERE o.userID = $userId) as od2
+    WHERE o.userID = $userId
+    AND o.status = 'in cart') as od2
 LEFT JOIN products as p
 ON od2.productID = p.id";
 
@@ -223,6 +224,21 @@ $numofrow = mysqli_num_rows($dbresult);
                           if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
                           && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
                             //Still empty for now
+                            $update = "UPDATE order SET status = 'purchased'
+                            WHERE ";
+                            /*"SELECT od2.id, p.name, p.price, od2.quantity
+                                FROM (SELECT od.id, od.productID, o.status, od.quantity
+                                    FROM orders as o
+                                    INNER JOIN order_details as od
+                                    ON o.id = od.orderID
+                                    WHERE o.userID = $userId
+                                    AND o.status = 'in cart') as od2
+                                LEFT JOIN products as p
+                                ON od2.productID = p.id";*/
+
+                            mysqli_query($mysqli, $update);
+                            header('Location: checkout_complete.php');
+
 
                           } else {
                             echo("<span class='error'>You must fill out the form</span></br></br>");
