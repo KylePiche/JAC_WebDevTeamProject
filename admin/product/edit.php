@@ -49,7 +49,7 @@
 
             move_uploaded_file($file_tmp, $file_store);
 
-            $imageurl = $file_path;
+            $imageurl = "./assets/img/".$file_name;
         }
 
 

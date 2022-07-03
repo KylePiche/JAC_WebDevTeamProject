@@ -73,13 +73,13 @@ $result = mysqli_query($mysqli, "SELECT * FROM products order by id ");
 
         move_uploaded_file($file_tmp, $file_store);
 
-        //$imageurl = $_POST["imageurl"];
+        $imageurl = "./assets/img/".$file_name;
 
         if (($name != "") && ($desc != "") && ($price != "")) {
 
             include_once("../../connection-config.php"); //get connection to db
 
-            $result = mysqli_query($mysqli, "INSERT INTO products (`name`, `desc`, `type`, price, imageUrl, CPUid, GPUid, memoryID, storageID, screenID) VALUES ('$name','$desc', '$type', $price, '$file_path', $cpuid, $gpuid, $memoryid, $storageid ,$screenid )");
+            $result = mysqli_query($mysqli, "INSERT INTO products (`name`, `desc`, `type`, price, imageUrl, CPUid, GPUid, memoryID, storageID, screenID) VALUES ('$name','$desc', '$type', $price, '$imageurl', $cpuid, $gpuid, $memoryid, $storageid ,$screenid )");
             // refresh the page  
             echo "<meta http-equiv='refresh' content='0'>";
         }
