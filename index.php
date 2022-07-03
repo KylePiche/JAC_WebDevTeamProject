@@ -39,7 +39,7 @@ session_start();
           <h5>NEW ARRIVALS</h5>
           <h1><span>Best Prices</span> This Season</h1>
           <p>Syntax Shop offers the best products for the most affordable prices</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -48,7 +48,7 @@ session_start();
           <h5>Questions & Answers</h5>
           <h1><span>Support</span> 24 Hr</h1>
           <p>Syntax Shop offers the best customer supports</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -57,7 +57,7 @@ session_start();
           <h5>NEW ARRIVALS</h5>
           <h1>New Computers<span> Everyday</span></h1>
           <p>Syntax Shop offers the best products for the most affordable prices</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
     </div>
