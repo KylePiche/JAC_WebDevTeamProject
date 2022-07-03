@@ -64,7 +64,7 @@ $numofrow = mysqli_num_rows($dbresult);
                 <?php
             $sum = 0;
             if($numofrow == 0) {
-                echo "cart is empty</br></br>";
+                echo "";
             } else {
               while($row = mysqli_fetch_array($dbresult)){
           
@@ -91,6 +91,13 @@ $numofrow = mysqli_num_rows($dbresult);
                     <th>
                 </tr>
             </table>
+            <?php
+            if($numofrow == 0) {
+              echo "cart is empty</br></br>";
+            } else {
+            echo '<button class="w-100 btn btn-primary btn-lg"><a href="checkout.php">Proceed to Checkout</a></button>';
+          }
+            ?>
         </div>
     </div>
     <?php require 'footer.php';?>

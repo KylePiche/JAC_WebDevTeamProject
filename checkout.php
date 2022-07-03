@@ -33,6 +33,8 @@ $numofrow = mysqli_num_rows($dbresult);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>.error {color: #FF0000; font-size: 16px;}</style>
+    
 </head>
 
 <body>
@@ -48,20 +50,20 @@ $numofrow = mysqli_num_rows($dbresult);
 
             <div class="row g-5">
                 <div class="col-md-5 col-lg-4 order-md-last">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">Your cart</span>
-                <!--<span class="badge bg-primary rounded-pill">3</span>-->
-            </h4>
-            <table class="table">
-                <thead>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price of each product</th>
-                    <th scope="col">quantity</th>
-                </thead>
-                <?php
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Your cart</span>
+                        <!--<span class="badge bg-primary rounded-pill">3</span>-->
+                    </h4>
+                    <table class="table">
+                        <thead>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price of each product</th>
+                            <th scope="col">quantity</th>
+                        </thead>
+                        <?php
             $sum = 0;
             if($numofrow == 0) {
-                echo "cart is empty</br></br>";
+                echo "";
             } else {
               while($row = mysqli_fetch_array($dbresult)){
           
@@ -74,20 +76,20 @@ $numofrow = mysqli_num_rows($dbresult);
                 $counter = 1;
                while($row = mysqli_fetch_array($test)){
                 ?>
-                <tr>
-                    <th><?php echo $row['name']?></th>
-                    <th><?php echo $row['price']?></th>
-                    <th><?php echo $row['quantity']?></th>
-                </tr>
-                <?php $counter=$counter+1;}?>
-                <tr>
-                    <th></th>
-                    <th>Total</th>
-                    <th>$ <?php echo $sum;?></th>
-                    <th>
-                </tr>
-            </table>
-
+                        <tr>
+                            <th><?php echo $row['name']?></th>
+                            <th><?php echo $row['price']?></th>
+                            <th><?php echo $row['quantity']?></th>
+                        </tr>
+                        <?php $counter=$counter+1;}?>
+                        <tr>
+                            <th></th>
+                            <th>Total</th>
+                            <th>$ <?php echo $sum;?></th>
+                            <th>
+                        </tr>
+                    </table>
+                <?php require 'checkout_validation.php'?>
                     <form class="card p-2">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Promo code">
@@ -97,88 +99,63 @@ $numofrow = mysqli_num_rows($dbresult);
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                         <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
+                            <div class="col-12">
+                                <label for="firstName" class="form-label">Full Name</label>
+                                <span class="error">* <?php echo $nameErr;?></span>
+                                <input type="text" class="form-control" name="name" placeholder="" value="" <?php echo $name;?>>
                             </div>
 
                             <div class="col-12">
-                                <label for="username" class="form-label">Username</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">@</span>
-                                    <input type="text" class="form-control" id="username" placeholder="Username"
-                                        required>
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="email" class="form-label">Email <span
-                                        class="text-muted">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address for shipping updates.
-                                </div>
+                                <label for="email" class="form-label">Email</label>
+                                <span class="error">* <?php echo $emailErr;?></span>
+                                <input type="email" class="form-control" name="email" placeholder="you@example.com">
                             </div>
 
                             <div class="col-12">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
-                                    required>
-                                <div class="invalid-feedback">
-                                    Please enter your shipping address.
-                                </div>
+                                <span class="error">* <?php echo $addressErr;?></span>
+                                <input type="text" class="form-control" name="address" placeholder="1234 Main St">
                             </div>
 
                             <div class="col-12">
                                 <label for="address2" class="form-label">Address 2 <span
                                         class="text-muted">(Optional)</span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                                <input type="text" class="form-control" name="address2" placeholder="Apartment or suite">
                             </div>
 
                             <div class="col-md-5">
                                 <label for="country" class="form-label">Country</label>
-                                <select class="form-select" id="country" required>
-                                    <option value="">Choose...</option>
+                                <span class="error">* <?php echo $countryErr;?></span>
+                                <select class="form-select" name="country">
+                                    <option disabled selected value="">Choose...</option>
+                                    <option>Canada</option>
                                     <option>United States</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="state" class="form-label">State</label>
-                                <select class="form-select" id="state" required>
-                                    <option value="">Choose...</option>
+                                <label for="state" class="form-label">State/Province</label>
+                                <span class="error">* <?php echo $stateErr;?></span>
+                                <select class="form-select" name="state">
+                                    <option disabled selected value="">Choose...</option>
+                                    <option>Quebec</option>
+                                    <option>Ontario</option>
+                                    <option>Alberta</option>
+                                    <option>British Columbia</option>
+                                    <option>Nova Scotia</option>
+                                    <option>New York</option>
                                     <option>California</option>
+                                    <option>Florida</option>
+                                    <option>Texas</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please provide a valid state.
-                                </div>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Zip code required.
-                                </div>
+                                <label for="zip" class="form-label">Postal Code/ZIP</label>
+                                <span class="error">* <?php echo $zipErr;?></span>
+                                <input type="text" class="form-control" name="zip" placeholder="">
                             </div>
                         </div>
 
@@ -197,20 +174,16 @@ $numofrow = mysqli_num_rows($dbresult);
 
                         <hr class="my-4">
 
-                        <h4 class="mb-3">Payment</h4>
-
+                        <h4 class="mb-3">Payment<span class="error">* <?php echo $cardErr;?></span></h4>
+                        
                         <div class="my-3">
+                        
                             <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked
-                                    required>
+                                <input type="radio" name="card" class="form-check-input" <?php if (isset($card) && $card=="Credit") echo "checked";?> value="Credit">
                                 <label class="form-check-label" for="credit">Credit card</label>
                             </div>
                             <div class="form-check">
-                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                                <label class="form-check-label" for="debit">Debit card</label>
-                            </div>
-                            <div class="form-check">
-                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <input type="radio" name="card" class="form-check-input" <?php if (isset($card) && $card=="Paypal") echo "checked";?> value="Paypal">
                                 <label class="form-check-label" for="paypal">PayPal</label>
                             </div>
                         </div>
@@ -218,41 +191,44 @@ $numofrow = mysqli_num_rows($dbresult);
                         <div class="row gy-3">
                             <div class="col-md-6">
                                 <label for="cc-name" class="form-label">Name on card</label>
-                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                <span class="error">* <?php echo $ccNameErr;?></span>
+                                <input type="text" class="form-control" name="ccName" placeholder="">
                                 <small class="text-muted">Full name as displayed on card</small>
-                                <div class="invalid-feedback">
-                                    Name on card is required
-                                </div>
                             </div>
 
                             <div class="col-md-6">
                                 <label for="cc-number" class="form-label">Credit card number</label>
-                                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Credit card number is required
-                                </div>
+                                <span class="error">* <?php echo $ccNumErr;?></span>
+                                <input type="text" class="form-control" name="ccNum" placeholder="">
                             </div>
 
                             <div class="col-md-3">
                                 <label for="cc-expiration" class="form-label">Expiration</label>
-                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Expiration date required
-                                </div>
+                                <span class="error">* <?php echo $ccExpErr;?></span>
+                                <input type="text" class="form-control" name="ccExp" placeholder="">
                             </div>
 
                             <div class="col-md-3">
                                 <label for="cc-cvv" class="form-label">CVV</label>
-                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                <div class="invalid-feedback">
-                                    Security code required
-                                </div>
+                                <span class="error">* <?php echo $ccCvvErr;?></span>
+                                <input type="text" class="form-control" name="ccCvv" placeholder="">
                             </div>
                         </div>
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Checkout</button>
+                        <?php 
+                        if (isset($_POST["submit"])) {
+                          if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)) {
+                            //Still empty for now
+
+                          } else {
+                            echo("<span class='error'>You must fill out the form</span></br></br>");
+                          }
+                        }
+                        ?>
+                        </br></br>
                     </form>
                 </div>
             </div>
