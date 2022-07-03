@@ -42,4 +42,12 @@ INSERT INTO users (email, userName, password, creditCard, address, city, postalC
 ("CCaufield@yahoo.ca", "user3", "e10adc3949ba59abbe56e057f20f883e", "0123456789012345", "456 Molson St.", "Montreal", "H2H2H2");
 
 INSERT INTO orders (userID, status) VALUES
-("")
+("1", "in cart"),
+("2", "in cart"),
+("3", "in cart"),
+("4", "in cart")
+
+INSERT INTO order_details (productID, orderID, quantity) VALUES
+("1", "1", "1"),
+("2", "2", "1"),
+("3", "3", "1")
