@@ -25,8 +25,8 @@ if (mysqli_num_rows($result) > 0) {
     echo "success";
     $id_query = "SELECT id,email FROM users WHERE email='$email' and password='$password'";
     $id_result = mysqli_query($mysqli ,$id_query);
-    $myarray = mysqli_fetch_array($result);
-    $_SESSION['id']=$myarray['id'];
+    $myarray = mysqli_fetch_array($id_result);
+    $_SESSION['id']= $myarray['id'];
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;
     $_SESSION['creditcard'] = "";
@@ -34,5 +34,5 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['city'] = "";
     $_SESSION['postalCode'] = "";
 
-    //header('Location: index.html');
+    header('Location: index.php');
 }
