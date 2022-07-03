@@ -220,7 +220,8 @@ $numofrow = mysqli_num_rows($dbresult);
                         <button class="w-100 btn btn-primary btn-lg" type="submit">Checkout</button>
                         <?php 
                         if (isset($_POST["submit"])) {
-                          if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)) {
+                          if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
+                          && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
                             //Still empty for now
 
                           } else {

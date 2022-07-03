@@ -2,7 +2,7 @@
 // define variables and set to empty values
 $nameErr = $emailErr = $addressErr = $countryErr = $stateErr = 
 $zipErr = $cardErr = $ccNameErr = $ccNumErr = $ccExpErr = $ccCvvErr = "";
-$name = $email = $gender = $address = $address2 = $country = 
+$name = $email = $address = $address2 = $country = 
 $state = $zip = $card = $ccName = $ccNum = $ccExp = $ccCvv = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -93,6 +93,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // matches regular expiration dates on credit cards
     if (!preg_match("/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/",$ccExp)) {
       $ccExpErr = "Enter a valid expiration date";
+    }
+  }
+
+  if (empty($_POST["ccCvv"])) {
+    $ccCvvErr = "Card CVV is required";
+  } else {
+    $ccCvv = test_input($_POST["ccCvv"]);
+    // matches CVV on credit cards
+    if (!preg_match("/^[0-9]{3, 5}$/",$ccCvv)) {
+      $ccCvvErr = "Enter a valid CVV";
     }
   }
 
