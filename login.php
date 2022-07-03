@@ -17,41 +17,40 @@ session_start();
     <!--cdn bootstrap icon-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 </head>
 
 <body>
     <?php require 'header.php'; ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-xs-6 col-xs-offset-3">
-            </div>
-            <div class="col-md-6 col-xs-6 col-xs-offset-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3>LOGIN</h3>
+    <div class="container-md">
+        <div class="d-flex justify-content-center">
+            <h3>LOGIN</h3>
+        </div>
+        <div class="row ">
+
+
+            <div class="panel-body text-center mb-3 tab-content">
+                <p>Login to make a purchase.</p>
+                <form method="post" action="login_submit.php">
+                    <div class="form-group col-md-3 d-flex justify-content-center">
+                        <input type="email" class="form-control col-xs-3" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                     </div>
-                    <div class="panel-body">
-                        <p>Login to make a purchase.</p>
-                        <form method="post" action="login_submit.php">
-                            <div class="form-group mb-3">
-                                <input type="email" class="form-control" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                            </div>
-                            <div class="form-group mb-3">
-                                <input type="password" class="form-control" name="password" placeholder="Password(min. 8 characters)" pattern=".{8,}">
-                            </div>
-                            <div class="form-group mb-2">
-                                <input type="submit" value="Login" class="btn btn-warning" style="width:100px;">
-                            </div>
-                        </form>
+                    <div class="form-group col-md-3 d-flex justify-content-center">
+                        <input type="password" class="form-control col-md-3" name="password" placeholder="Password(min. 8 characters)" pattern=".{8,}">
                     </div>
-                    <div class="panel-footer">Don't have an account yet? <a href="signup.php">Register</a></div>
-                </div>
+                    <?php if (isset($_SESSION['login_err_msg'])) { ?>
+                        <span><?= $_SESSION['login_err_msg'] ?></span>
+                    <?php } ?>
+                    <div class="form-group mt-5">
+                        <input type="submit" value="Login" class="btn btn-primary">
+                    </div>
+                </form>
             </div>
-            <div class="col-md-3 col-xs-6 col-xs-offset-3">
-            </div>
+            <div class="panel-footer">Don't have an account yet? <a href="signup.php">Register</a></div>
+
         </div>
     </div>
+
 </body>
 
 </html>
