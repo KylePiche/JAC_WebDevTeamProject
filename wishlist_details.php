@@ -45,6 +45,7 @@ $numofrow = mysqli_num_rows($result);
                     <th scope="col">Product</th>
                     <th scope="col">Date Added</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </thead>
                 <?php
                   if($numofrow > 0){
@@ -53,6 +54,7 @@ $numofrow = mysqli_num_rows($result);
                       echo "<td>".$user_data['productName']."</td>";
                       echo "<td>".$user_data['dateAdded']."</td>";
                       echo "<td><a href='detail.php?id=$user_data[productID]'>View</a>";
+                      echo "<td><a href='wishlist/favorite_remove.php?faveID=".$user_data['productID']."&listID=$listID'>Delete</a>";
                       echo "</tr>"; 
                     }
                   }else{

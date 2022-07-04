@@ -43,6 +43,7 @@ $numofrow = mysqli_num_rows($result);
                     <th scope="col">List Number</th>
                     <th scope="col">Date Created</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </thead>
                 <?php
                   if($numofrow > 0){
@@ -51,6 +52,7 @@ $numofrow = mysqli_num_rows($result);
                       echo "<td>".$user_data['id']."</td>";
                       echo "<td>".$user_data['dateCreated']."</td>";
                       echo "<td><a href='wishlist_details.php?id=$user_data[id]'>View</a>";
+                      echo "<td><a href='wishlist/favorite_list_remove.php?listID=$user_data[id]'>Delete</a>";
                       echo "</tr>"; 
                     }
                   }else{
