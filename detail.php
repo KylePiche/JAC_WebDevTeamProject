@@ -85,8 +85,11 @@ session_start();
             <!-- <form action="cart/cart_add.php?id=<?php echo $_GET['id'] ?>" method="get">
               <button class="custombtn" type="submit">Add to Cart</button>
             </form> -->
+            <?php if(!isset($_SESSION['id'])){ ?>
+              <a href="login.php" class="btn btn-sm card-btn">Login to purchase</a><br>
+            <?php } else {?>
             <a href="cart/cart_add.php?id=<?php echo $_GET['id'] ?>" class="btn btn-sm card-btn">Add to Cart</a><br>
-
+            <?php }?>
             <?php if (isset($_SESSION['listID'])) { ?>
               <!-- <a href="cart/cart_add.php?id=<?php echo $_GET['id'] ?>" class="btn btn-sm card-btn">Add to Wishlist</a> -->
               <form action="wishlist/favorite_add.php?productId=<?php echo $id?>" method="post">
