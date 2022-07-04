@@ -13,7 +13,7 @@ if(mysqli_query($mysqli, $list_create_query)){
     $myarray = mysqli_fetch_array($result);
     $_SESSION['listID'] = $myarray['listID'];
     $_SESSION['dateCreated'] = $myarray['dateCreated'];
-    echo "Wishlist created<br><a href=\"wishlists.php\">Return to Wishlists</a>";
+    echo "Wishlist created<br><a href=\"../wishlists.php\">Return to Wishlists</a>";
 }else{
     echo "Error: Wishlist not created<br><a href=\"../wishlists.php\">Return to Wishlists</a>";
 }
