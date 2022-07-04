@@ -39,22 +39,22 @@ $numofrow = mysqli_num_rows($dbresult);
 </head>
 
 <body>
-<?php 
-                        if (isset($_POST["submit"])) {
-                          if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
-                          && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
-                            $userId = $_SESSION['id'];
-                            $update = "UPDATE orders SET `status` = 'purchased'
-                            WHERE userID = $userId";
+    <?php 
+        if (isset($_POST["submit"])) {
+            if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
+                && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
+            $userId = $_SESSION['id'];
+            $update = "UPDATE orders SET `status` = 'purchased'
+                WHERE userID = $userId";
 
-                            mysqli_query($mysqli, $update);
-                            header('Location: checkout_complete.php');
+            mysqli_query($mysqli, $update);
+            header('Location: checkout_complete.php');
 
-                          } else {
-                            echo("<span class='error'>You must fill out the form</span></br></br>");
-                          }
-                        }
-                        ?>
+            } else {
+                echo("<span class='error'>You must fill out the form</span></br></br>");
+            }
+        }
+    ?>
     <?php require 'header.php';?>
     <div class="container">
         <main>
