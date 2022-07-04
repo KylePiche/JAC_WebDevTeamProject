@@ -73,15 +73,20 @@ session_start();
         </div>
         <div class="col-sm-12 col-lg-6 col-md-6 mb-3">
           <div>
-            <strong><p>Price: $<?php echo $price ?></p></strong>
+            <strong>
+              <p>Price: $<?php echo $price ?></p>
+            </strong>
             <p>CPU: <?php echo $cpu['desc'] ?></p>
             <p>GPU: <?php echo $gpu['desc'] ?></p>
             <p>Memory: <?php echo $memory['desc'] ?></p>
             <p>Storage: <?php echo $storage['desc'] ?></p>
             <p>Screen: <?php echo $screen['desc'] ?></p>
             <p>"Windows 11</p>
-            <button class="custombtn">Add to Card</button>
-            <button class="custombtn">Add to Wishlist</button>
+            <!-- <form action="cart/cart_add.php?id=<?php echo $_GET['id']?>" method="get">
+              <button class="custombtn" type="submit">Add to Cart</button>
+            </form> -->
+            <a href="cart/cart_add.php?id=<?php echo $_GET['id']?>" class="btn btn-sm card-btn">Add to Cart</a>
+            <a href="cart/cart_add.php?id=<?php echo $_GET['id']?>" class="btn btn-sm card-btn">Add to Wishlist</a>
           </div>
         </div>
       </div>

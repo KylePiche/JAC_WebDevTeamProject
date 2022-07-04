@@ -8,7 +8,8 @@ FROM (SELECT od.id, od.productID, o.status, od.quantity
     FROM orders as o
     INNER JOIN order_details as od
       ON o.id = od.orderID
-    WHERE o.userID = $userId) as od2
+    WHERE o.userID = $userId
+    AND o.status = 'in cart') as od2
 LEFT JOIN products as p
 ON od2.productID = p.id";
 /*$result = "SELECT od2.id, p.name, p.price, od.quantity
@@ -42,18 +43,19 @@ $numofrow = mysqli_num_rows($dbresult);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>#cart {color: white; text-decoration: none;}</style>
 
 </head>
 
 <body>
-    <?php require 'header.php';?>
 
+  <?php require 'header.php';?>
 
+  <div class="container">
     <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-                <!--<span class="badge bg-primary rounded-pill">3</span>-->
             </h4>
             <table class="table">
                 <thead>
@@ -93,12 +95,14 @@ $numofrow = mysqli_num_rows($dbresult);
             </table>
             <?php
             if($numofrow == 0) {
-              echo "cart is empty</br></br>";
+              echo "cart is empty";
             } else {
-            echo '<button class="w-100 btn btn-primary btn-lg"><a href="checkout.php">Proceed to Checkout</a></button>';
+            echo '<button class="w-100 btn btn-primary btn-lg" id="cart"><a href="checkout.php">Proceed to Checkout</a></button>';
           }
             ?>
+            </br></br>
         </div>
     </div>
-    <?php require 'footer.php';?>
+  </div>
+  <?php require 'footer.php';?>
 </body>

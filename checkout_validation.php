@@ -87,7 +87,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["ccExp"])) {
-    $ccExpErr = "Card number is required";
+    $ccExpErr = "Card expiration is required";
+
   } else {
     $ccExp = test_input($_POST["ccExp"]);
     // matches regular expiration dates on credit cards
@@ -101,14 +102,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $ccCvv = test_input($_POST["ccCvv"]);
     // matches CVV on credit cards
-    if (!preg_match("/^[0-9]{3, 5}$/",$ccCvv)) {
+    if (!preg_match("/^[0-9]{3,4}$/",$ccCvv)) {
       $ccCvvErr = "Enter a valid CVV";
     }
   }
-
-  
-
-
 }
 
 function test_input($data) {

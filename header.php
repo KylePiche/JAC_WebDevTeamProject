@@ -27,7 +27,7 @@
                         <a href="logout.php" class="nav-link">Log out</a>
                     </li>
                     <li class="nav-item">
-                        <i class="bi bi-cart"></i>
+                        <a href="cart.php"><i class="bi bi-cart"></i></a>
                         <a href="user_dashboard.php"><i class="bi bi-person"></i></a>
                     </li>
                 <?php } ?>
