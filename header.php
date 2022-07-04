@@ -28,6 +28,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="cart.php"><i class="bi bi-cart"></i></a>
+                        <a href="wishlists.php"><i class="bi bi-suit-heart"></i></a>
                         <a href="user_dashboard.php"><i class="bi bi-person"></i></a>
                     </li>
                 <?php } ?>
