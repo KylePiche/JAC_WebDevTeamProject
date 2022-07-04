@@ -48,6 +48,7 @@ $numofrow = mysqli_num_rows($dbresult);
 </head>
 
 <body>
+
   <?php require 'header.php';?>
 
   <div class="container">
@@ -104,5 +105,4 @@ $numofrow = mysqli_num_rows($dbresult);
     </div>
   </div>
   <?php require 'footer.php';?>
-    
 </body>

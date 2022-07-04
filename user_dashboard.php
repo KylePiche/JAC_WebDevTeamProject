@@ -81,7 +81,9 @@ session_start();
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" name="submit-changePass" value="Change Password">
                     </div>
+                    <br>
                 </form>
+                <h5><a href="wishlists.php">View Wishlists</a></h5>
             </div>
         </div>
     </div>

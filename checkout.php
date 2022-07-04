@@ -234,10 +234,10 @@ $numofrow = mysqli_num_rows($dbresult);
 
                         <hr class="my-4">
 
+
                         <input class="w-100 btn btn-primary btn-lg" type="submit" name="submit" value="Checkout"></input>
                         </br></br>
                     </form>
-                        
                 </div>
             </div>
         </main>
