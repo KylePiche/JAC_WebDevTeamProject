@@ -22,6 +22,6 @@
 </head>
 <body>
     <?php require 'header.php';?>
-    <p>Thank you for your purchase!</p>
+    <p>Thank you for your purchase! You will be redirected shortly...</p>
 </body>
 </html>

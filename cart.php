@@ -42,6 +42,7 @@ $numofrow = mysqli_num_rows($dbresult);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>#cart {color: white; text-decoration: none;}</style>
 
 </head>
 
@@ -94,7 +95,7 @@ $numofrow = mysqli_num_rows($dbresult);
             if($numofrow == 0) {
               echo "cart is empty";
             } else {
-            echo '<button class="w-100 btn btn-primary btn-lg"><a href="checkout.php">Proceed to Checkout</a></button>';
+            echo '<button class="w-100 btn btn-primary btn-lg" id="cart"><a href="checkout.php">Proceed to Checkout</a></button>';
           }
             ?>
             </br></br>
