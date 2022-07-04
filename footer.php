@@ -12,10 +12,7 @@
         <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
           <h3 class="footer-heading mb-3">Support</h3>
           <ul class="list-unstyled">
-            <li><a href="#">Offers &amp; Discounts</a></li>
-            <li><a href="#">Frequency Asked Questions</a></li>
-            <li><a href="#">Terms &amp; Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>            
+            <li><a href="tel:(514)-555-8888">(514)-555-8888</a></li>
           </ul>
         </div>
 
