@@ -33,3 +33,21 @@ INSERT INTO spec_screen (`desc`, size) VALUES
 ("Ultimus Gaming PC", "Dominate the playing field with this top of the line gaming PC.", "desktop", "2000.99", "placeholderURL", 1, 2, 1, 1, 1),
 ("Ultimus Gaming Laptop", "Dominate the playing field on the go with this top of the line gaming laptop.", "laptop", "2200.99", "placeholderURL", 2, 3, 2, 2, 2),
 ("Ultimus Work Laptop", "Dominate the office space with this top of the line workstation laptop.", "laptop", "1800.99", "placeholderURL", 3, 4, 3, 3, 3);
+
+/*Users*/
+
+INSERT INTO users (email, userName, password, creditCard, address, city, postalCode) VALUES
+("bobby_smith@hotmail.com", "user1", "e10adc3949ba59abbe56e057f20f883e", "1234567891234567", "555 first ave.", "Montreal", "H0H0H0"),
+("val_nichushkin@gmail.com", "user2", "e10adc3949ba59abbe56e057f20f883e", "9876543219876543", "123 second ave.", "Montreal", "H1H1H1"),
+("CCaufield@yahoo.ca", "user3", "e10adc3949ba59abbe56e057f20f883e", "0123456789012345", "456 Molson St.", "Montreal", "H2H2H2");
+
+INSERT INTO orders (userID, status) VALUES
+("1", "in cart"),
+("2", "in cart"),
+("3", "in cart"),
+("4", "in cart")
+
+INSERT INTO order_details (productID, orderID, quantity) VALUES
+("1", "1", "1"),
+("2", "2", "1"),
+("3", "3", "1")
