@@ -39,7 +39,7 @@ session_start();
           <h5>NEW ARRIVALS</h5>
           <h1><span>Best Prices</span> This Season</h1>
           <p>Syntax Shop offers the best products for the most affordable prices</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -48,7 +48,7 @@ session_start();
           <h5>Questions & Answers</h5>
           <h1><span>Support</span> 24 Hr</h1>
           <p>Syntax Shop offers the best customer supports</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -57,7 +57,7 @@ session_start();
           <h5>NEW ARRIVALS</h5>
           <h1>New Computers<span> Everyday</span></h1>
           <p>Syntax Shop offers the best products for the most affordable prices</p>
-          <button class="btn">Shop Now</button>
+          <button class="custombtn">Shop Now</button>
         </div>
       </div>
     </div>
@@ -111,109 +111,10 @@ session_start();
     </div>
   </section>
 
-  <!--Laptop-->
-  <section id="laptop">
-    <div class="container">
-      <!-- Section tittle -->
-      <div class="row justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-10">
-          <div class="section-tittle mb-70 text-center">
-            <h2>Popular Laptops</h2>
-            <hr>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus eum quia optio, molestiae nihil aut assumenda excepturi aperiam iusto necessitatibus quis obcaecati? </p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-          <div class="single-popular-items mb-50 text-center">
-            <div class="popular-img">
-              <img src="assets/img/computer1.jpg" alt="">
-              <div class="img-cap">
-                <span>Add to cart</span>
-              </div>
-            </div>
-            <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 1</a></h3>
-              <span>$ 1,743</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-          <div class="single-popular-items mb-50 text-center">
-            <div class="popular-img">
-              <img src="assets/img/computer2.jpg" alt="">
-              <div class="img-cap">
-                <span>Add to cart</span>
-              </div>
-            </div>
-            <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 2</a></h3>
-              <span>$ 1,743</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-          <div class="single-popular-items mb-50 text-center">
-            <div class="popular-img">
-              <img src="assets/img/computer3.jpg" alt="">
-              <div class="img-cap">
-                <span>Add to cart</span>
-              </div>
-            </div>
-            <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 3</a></h3>
-              <span>$ 1,743</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-          <div class="single-popular-items mb-50 text-center">
-            <div class="popular-img">
-              <img src="assets/img/computer1.jpg" alt="">
-              <div class="img-cap">
-                <span>Add to cart</span>
-              </div>
-            </div>
-            <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 4</a></h3>
-              <span>$ 1,743</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-          <div class="single-popular-items mb-50 text-center">
-            <div class="popular-img">
-              <img src="assets/img/computer2.jpg" alt="">
-              <div class="img-cap">
-                <span>Add to cart</span>
-              </div>
-            </div>
-            <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 5</a></h3>
-              <span>$ 1,743</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-          <div class="single-popular-items mb-50 text-center">
-            <div class="popular-img">
-              <img src="assets/img/computer3.jpg" alt="">
-              <div class="img-cap">
-                <span>Add to cart</span>
-              </div>
-            </div>
-            <div class="popular-caption">
-              <h3><a href="product_details.html">Laptop 6</a></h3>
-              <span>$ 1,743</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  
 
   </section>
-
+  <?php require 'footer.php';?>
 
 
 
