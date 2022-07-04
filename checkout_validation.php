@@ -106,24 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  if (isset($_POST["submit"])) {
-    if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
-    && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
-      //Still empty for now
-      $update = "UPDATE order SET status = 'purchased'
-      WHERE userID = $userId";
-
-      mysqli_query($mysqli, $update);
-      header('Location: checkout_complete.php');
-
-
-    } else {
-      echo("<span class='error'>You must fill out the form</span></br></br>");
-    }
-  }
-
-  
-
 
 }
 

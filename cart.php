@@ -8,7 +8,8 @@ FROM (SELECT od.id, od.productID, o.status, od.quantity
     FROM orders as o
     INNER JOIN order_details as od
       ON o.id = od.orderID
-    WHERE o.userID = $userId) as od2
+    WHERE o.userID = $userId
+    AND o.status = 'in cart') as od2
 LEFT JOIN products as p
 ON od2.productID = p.id";
 /*$result = "SELECT od2.id, p.name, p.price, od.quantity

@@ -39,6 +39,22 @@ $numofrow = mysqli_num_rows($dbresult);
 </head>
 
 <body>
+<?php 
+                        if (isset($_POST["submit"])) {
+                          if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
+                          && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
+                            $userId = $_SESSION['id'];
+                            $update = "UPDATE orders SET `status` = 'purchased'
+                            WHERE userID = $userId";
+
+                            mysqli_query($mysqli, $update);
+                            header('Location: checkout_complete.php');
+
+                          } else {
+                            echo("<span class='error'>You must fill out the form</span></br></br>");
+                          }
+                        }
+                        ?>
     <?php require 'header.php';?>
     <div class="container">
         <main>
@@ -100,7 +116,7 @@ $numofrow = mysqli_num_rows($dbresult);
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <form method="post">
                         <div class="row g-3">
                             <div class="col-12">
                                 <label for="firstName" class="form-label">Full Name</label>
@@ -218,26 +234,10 @@ $numofrow = mysqli_num_rows($dbresult);
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Checkout</button>
-                        <?php 
-                        if (isset($_POST["submit"])) {
-                          if (empty($nameErr) && empty($emailErr) && empty($addressErr) && empty($countryErr) && empty($stateErr) && empty($zipErr)
-                          && empty($cardErr) && empty($ccNameErr) && empty($ccNumErr) && empty($ccExpErr) && empty($ccCvvErr)) {
-                            //Still empty for now
-                            $update = "UPDATE order SET status = 'purchased'
-                            WHERE userID = $userId";
-
-                            mysqli_query($mysqli, $update);
-                            header('Location: checkout_complete.php');
-
-
-                          } else {
-                            echo("<span class='error'>You must fill out the form</span></br></br>");
-                          }
-                        }
-                        ?>
+                        <input class="w-100 btn btn-primary btn-lg" type="submit" name="submit" value="Checkout"></input>
                         </br></br>
                     </form>
+                        
                 </div>
             </div>
         </main>

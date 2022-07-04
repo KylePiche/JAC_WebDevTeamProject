@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <?php header("Refresh:5; url=index.php", true, 303); ?>
     <?php require 'header.php';?>
-    <p>Thank you for your purchase! You will be redirected shortly...</p>
+    <p>Thank you for your purchase! You will be redirected back to the homepage shortly...</p>
 </body>
 </html>
