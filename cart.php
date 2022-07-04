@@ -43,7 +43,7 @@ $numofrow = mysqli_num_rows($dbresult);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
-    <style>#cart {color: white; text-decoration: none;}</style>
+    <style>a {color: white; text-decoration: none;}</style>
 
 </head>
 
