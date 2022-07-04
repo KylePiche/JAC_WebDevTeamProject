@@ -2,8 +2,8 @@
 include_once "connection-config.php";
 session_start();
 
-$faveID = $_SESSION['faveID']; // Not sure where the ID will come from: saved in SESSION or set by POST
-//$faveID = $_POST['faveID'];
+
+$faveID = $_GET['faveID'];
 
 $delete_favorite_query = "DELETE FROM favorites WHERE faveID=$faveID";
 if(mysqli_query($mysqli, $delete_favorite_query)){
