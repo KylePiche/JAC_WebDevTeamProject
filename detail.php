@@ -82,11 +82,29 @@ session_start();
             <p>Storage: <?php echo $storage['desc'] ?></p>
             <p>Screen: <?php echo $screen['desc'] ?></p>
             <p>"Windows 11</p>
-            <!-- <form action="cart/cart_add.php?id=<?php echo $_GET['id']?>" method="get">
+            <!-- <form action="cart/cart_add.php?id=<?php echo $_GET['id'] ?>" method="get">
               <button class="custombtn" type="submit">Add to Cart</button>
             </form> -->
-            <a href="cart/cart_add.php?id=<?php echo $_GET['id']?>" class="btn btn-sm card-btn">Add to Cart</a>
-            <a href="cart/cart_add.php?id=<?php echo $_GET['id']?>" class="btn btn-sm card-btn">Add to Wishlist</a>
+            <a href="cart/cart_add.php?id=<?php echo $_GET['id'] ?>" class="btn btn-sm card-btn">Add to Cart</a><br>
+
+            <?php if (isset($_SESSION['listID'])) { ?>
+              <!-- <a href="cart/cart_add.php?id=<?php echo $_GET['id'] ?>" class="btn btn-sm card-btn">Add to Wishlist</a> -->
+              <form action="wishlist/favorite_add.php?productId=<?php echo $id?>" method="post">
+                <label for="wishID">Select a wishlist to add</label>
+                <select name="wishID" id="wishID">
+                  <?php
+                  $favQuery = "SELECT * FROM favorite_lists where userID = {$_SESSION['id']}";
+                  $favResult = mysqli_query($mysqli, $favQuery);
+                  while ($favList = mysqli_fetch_array($favResult)) {
+                    echo "<option value='".$favList['id']."'>".$favList['id']."</option>";
+                  }
+                  
+                  ?>
+                  
+                </select>
+                <button type="submit" class="btn btn-sm card-btn">Add to Wishlist</button>
+              </form>
+            <?php } ?>
           </div>
         </div>
       </div>

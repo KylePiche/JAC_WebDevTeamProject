@@ -1,6 +1,6 @@
 <?php 
 
-include_once "connection-config.php";
+include_once "../connection-config.php";
 session_start();
 
 $userID = $_SESSION['id'];
@@ -15,7 +15,7 @@ if(mysqli_query($mysqli, $list_create_query)){
     $_SESSION['dateCreated'] = $myarray['dateCreated'];
     echo "Wishlist created<br><a href=\"wishlists.php\">Return to Wishlists</a>";
 }else{
-    echo "Error: Wishlist not created<br><a href=\"wishlists.php\">Return to Wishlists</a>";
+    echo "Error: Wishlist not created<br><a href=\"../wishlists.php\">Return to Wishlists</a>";
 }
 
 ?>

@@ -55,7 +55,8 @@ $numofrow = mysqli_num_rows($result);
                     }
                   }else{
                     echo "<tr>";
-                    echo "<td>No Wishlists</td>";
+                    echo "<td>No Wishlists <a href='wishlist/favorite_list_create.php'>Add one by clicking here</td>";
+                    
                   }
                 ?>
             </table>
